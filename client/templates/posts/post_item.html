@@ -1,7 +1,17 @@
 <template name="postItem">
   <div class="post">
+    <a href="#" class="upvote btn btn-default {{upvotedClass}}">⬆</a>
     <div class="post-content">
       <h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
+      <p>
+        {{pluralize votes " Stimme"}} |
+        Autor: {{author}} |
+        <a href="{{pathFor 'postPage'}}">{{commentsCount}} Kommentare |</a>
+        {{#if ownPost}}
+        <a href="{{pathFor 'postEdit'}}">Editieren</a>
+        {{/if}}
+      </p>
     </div>
+    <a href="{{pathFor 'postPage'}}" class="disscuss btn btn-default pull-right">Diskutiere</a>
   </div>
 </template>
